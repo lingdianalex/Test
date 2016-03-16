@@ -1,0 +1,29 @@
+apply plugin: 'com.android.application'
+//现在加入这个工程依赖刚才的库工程
+android {
+    compileSdkVersion 23
+    buildToolsVersion "23.0.2"
+
+    defaultConfig {
+        applicationId "com.wangsy.test"
+        minSdkVersion 9
+        targetSdkVersion 23
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:23.2.1'
+    //在这写代码  但是studio可以使用界面工具配置，注意细节变化  和图标的不同  没了  关于工程的其他的自己点点
+
+    compile project(':baselibrary')
+}
